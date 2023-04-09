@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://drive.google.com/uc?export=view&id=1i31v_XnHqseSqoqbECJLakkMGmeChSTQ">
+		<link rel="stylesheet" href="C:\Users\Niel\Desktop\Capstone Website\Final Website\TestingCSS.css">
+        <h1>Capstone Malala</h1>
+	</head>
+	<body>
+		
+		<h1>ESP8266 Web Server</h1>
+        <img src="https://drive.google.com/uc?export=view&id=129DKBLkGaFTZamDGfOkrXybf_PHrcjie" alt="Wifi Sign" width="32" height="32">
+        <h3>GamitoMATIK</h3>
+		<div>
+			<p style="color:#2c3e50;font-weight: bold;font-size: 18px;" id="ts-api-key"></p>
+			<p id="Relay1">Relay 1: OFF</p>
+			<button type="button" id="btnRelay1ON" class="buttonON deactiveBtn btnDeactivated" onclick="Relay1ON()">OFF</button>
+			<button type="button" id="btnRelay1OFF" class="buttonOFF deactiveBtn btnDeactivated" onclick="Relay1OFF()">ON</button>
+			<p>Relay 1 Status</p>
+			<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2091774/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=step&yaxismax=10&yaxismin=0"></iframe>
+
+			<script>
+				
+				function Relay1ON(){
+				
+            	setTimeout(function(){
+				document.getElementById("Relay1").innerHTML = "Relay 1: OFF";
+				document.getElementById("btnRelay1ON").classList.remove("btnDeactivated");
+				document.getElementById("btnRelay1OFF").classList.add("btnDeactivated");
+				document.getElementById("btnRelay1ON").disabled = true;
+				document.getElementById("btnRelay1ON").disabled = false;
+				},2000);
+				}
+	
+				function Relay1OFF(){
+				document.getElementById("Relay1").innerHTML = "Relay 1: ON";
+				document.getElementById("btnRelay1OFF").classList.remove("btnDeactivated");
+				document.getElementById("btnRelay1ON").classList.add("btnDeactivated");
+				}
+			</script>
+			
+			<script>	
+				document.getElementById('btnRelay1ON').addEventListener('click', function() {
+					var ts_api_key = document.getElementById('ts-api-key').value;
+					var url = "https://api.thingspeak.com/update?api_key=283FB7UWIAJ6LPHO&field1=0"
+					$.getJSON(url, function(data) {
+						console.log(data);
+					});
+				});
+				document.getElementById('btnRelay1OFF').addEventListener('click', function() {
+					var ts_api_key = document.getElementById('ts-api-key').value;
+					var url = "https://api.thingspeak.com/update?api_key=283FB7UWIAJ6LPHO&field1=10"
+					$.getJSON(url, function(data) {
+						console.log(data);
+					});
+				});
+			</script>
+		</div>
+
+		<div>
+			<p style="color:#2c3e50;font-weight: bold;font-size: 18px;" id="ts-api-key"></p>
+			<p id="Relay2">Relay 2: OFF</p>
+			<button type="button" id="btnRelay2ON" class="buttonON deactiveBtn btnDeactivated" onclick="Relay2ON()">OFF</button>
+			<button type="button" id="btnRelay2OFF" class="buttonOFF deactiveBtn btnDeactivated" onclick="Relay2OFF()">ON</button>
+			<p>Relay 2 Status</p>
+			<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2091774/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=10&yaxismin=0"></iframe>
+
+
+			<script>
+				function Relay2ON(){
+				document.getElementById("Relay2").innerHTML = "Relay 2: OFF";
+				document.getElementById("btnRelay2ON").classList.remove("btnDeactivated");
+				document.getElementById("btnRelay2OFF").classList.add("btnDeactivated");
+				}
+	
+				function Relay2OFF(){
+				document.getElementById("Relay2").innerHTML = "Relay 2: ON";
+				document.getElementById("btnRelay2OFF").classList.remove("btnDeactivated");
+				document.getElementById("btnRelay2ON").classList.add("btnDeactivated");
+				}
+			</script>
+			
+			<script>	
+				document.getElementById('btnRelay2ON').addEventListener('click', function() {
+					var ts_api_key = document.getElementById('ts-api-key').value;
+					var url = "https://api.thingspeak.com/update?api_key=283FB7UWIAJ6LPHO&field2=0"
+					$.getJSON(url, function(data) {
+						console.log(data);
+					});
+				});
+				document.getElementById('btnRelay2OFF').addEventListener('click', function() {
+					var ts_api_key = document.getElementById('ts-api-key').value;
+					var url = "https://api.thingspeak.com/update?api_key=283FB7UWIAJ6LPHO&field2=10"
+					$.getJSON(url, function(data) {
+						console.log(data);
+					});
+				});
+			</script>
+		</div>
+
+		<div>
+			<p style="color:#2c3e50;font-weight: bold;font-size: 18px;" id="ts-api-key"></p>
+			<p id="Relay3">Relay 3: OFF</p>
+			<button type="button" id="btnRelay3ON" class="buttonON deactiveBtn btnDeactivated" onclick="Relay3ON()">OFF</button>
+			<button type="button" id="btnRelay3OFF" class="buttonOFF deactiveBtn btnDeactivated" onclick="Relay3OFF()">ON</button>
+			<p>Relay 3 Status</p>
+			<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2091774/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&yaxismax=10&yaxismin=0"></iframe>
+
+
+			<script>
+				function Relay3ON(){
+				document.getElementById("Relay3").innerHTML = "Relay 3: OFF";
+				document.getElementById("btnRelay3ON").classList.remove("btnDeactivated");
+				document.getElementById("btnRelay3OFF").classList.add("btnDeactivated");
+				}
+	
+				function Relay3OFF(){
+				document.getElementById("Relay3").innerHTML = "Relay 3: ON";
+				document.getElementById("btnRelay3OFF").classList.remove("btnDeactivated");
+				document.getElementById("btnRelay3ON").classList.add("btnDeactivated");
+				}
+			</script>
+			
+			<script>	
+				document.getElementById('btnRelay3ON').addEventListener('click', function() {
+					var ts_api_key = document.getElementById('ts-api-key').value;
+					var url = "https://api.thingspeak.com/update?api_key=283FB7UWIAJ6LPHO&field3=0"
+					$.getJSON(url, function(data) {
+						console.log(data);
+					});
+				});
+				document.getElementById('btnRelay3OFF').addEventListener('click', function() {
+					var ts_api_key = document.getElementById('ts-api-key').value;
+					var url = "https://api.thingspeak.com/update?api_key=283FB7UWIAJ6LPHO&field3=10"
+					$.getJSON(url, function(data) {
+						console.log(data);
+					});
+				});
+			</script>
+		</div>
+	</body>
+</html>
